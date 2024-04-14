@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+assignment-solution-batch-2
+think-in-a-redux-way    
 
 # Editor directories and files
 .vscode/*
