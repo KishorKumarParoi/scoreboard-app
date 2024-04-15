@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import idGenerator from '../../utils/idGenerator';
 
 // initial state
 const initialState = [
@@ -27,10 +28,24 @@ const counterSlice = createSlice({
         },
         decrement: (state, action) => {
             const counterIndex = state.findIndex((counter) => counter.id === action.payload);
-            state[counterIndex].value--;
+            state[counterIndex].value = Math.max(0, state[counterIndex].value - 1);
+        },
+        addCounter: (state) => {
+            state.push({
+                id: idGenerator(state) + 1,
+                value: 0,
+            });
+        },
+        reset: (state) => {
+            state.forEach((counter) => {
+                counter.value = 0;
+            });
+        },
+        deleteCounter: (state, action) => {
+            return state.filter((counter) => counter.id !== action.payload);
         },
     }
 });
 
-export const { increment, decrement } = counterSlice.actions;
+export const { increment, decrement, addCounter, reset, deleteCounter } = counterSlice.actions;
 export default counterSlice.reducer;

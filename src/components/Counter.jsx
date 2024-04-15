@@ -1,7 +1,7 @@
 import Button from "./Button";
 import Count from "./Count";
 
-export default function Counter({ count, onIncrement, onDecrement }) {
+export default function Counter({ count, onIncrement, onDecrement, onDelete }) {
     return (
         <div className="p-4 h-auto flex flex-col items-center justify-center space-y-5 bg-white rounded shadow">
             <Count count={count} />
@@ -11,6 +11,7 @@ export default function Counter({ count, onIncrement, onDecrement }) {
                     Decrement
                 </Button>
             </div>
+            <Button type="danger" handler={onDelete}>Delete</Button>
         </div>
     );
 }
