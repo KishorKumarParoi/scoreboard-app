@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addCounter, decrement, deleteCounter, increment, reset } from "../features/counter/counterSlice";
 import Counter from "./Counter";
+import Posts from './Posts';
 import Stats from "./Stats";
 
 export default function App() {
@@ -58,7 +59,7 @@ export default function App() {
 
                 <Stats totalCount={totalCount} />
 
-                {/* <Posts /> */}
+                <Posts />
             </div>
         </div>
     );
